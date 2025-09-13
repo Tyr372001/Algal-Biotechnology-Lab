@@ -1,0 +1,156 @@
+/* 1) Tailwind base / components / utilities — DO NOT REMOVE */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------
+   Custom site CSS (animations + helpers)
+   Paste this BELOW the Tailwind directives
+   --------------------------- */
+
+/* ---------------------------
+   Background blob animations
+   --------------------------- */
+@keyframes floatX {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-12px) translateX(6px) scale(1.02); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+.blob1, .blob2 {
+  animation: floatX 12s ease-in-out infinite;
+  filter: blur(14px);
+  opacity: 0.28;
+  will-change: transform, opacity;
+}
+
+/* Slight variation for the second blob */
+.blob2 {
+  animation-duration: 14s;
+  opacity: 0.22;
+}
+
+/* ---------------------------
+   Soft entrance animation
+   --------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 700ms ease forwards;
+}
+
+/* ---------------------------
+   KPI card base shadow & 3d
+   --------------------------- */
+.kpi-base {
+  box-shadow: 0 14px 30px rgba(2,6,23,0.12);
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+}
+
+/* make sure cards don't overflow on mobile with perspective */
+.perspective { perspective: 1000px; }
+
+/* ---------------------------
+   CTA micro-badge
+   --------------------------- */
+.cta-badge {
+  background: rgba(255,255,255,0.12);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  backdrop-filter: blur(6px);
+}
+
+/* ---------------------------
+   KPI count number smoothing (optional)
+   --------------------------- */
+.kpi-number {
+  will-change: transform;
+  display: inline-block;
+}
+
+/* ---------------------------
+   subtle card glow on hover helper
+   --------------------------- */
+.card-glow {
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+.card-glow:hover {
+  box-shadow: 0 24px 48px rgba(16,185,129,0.14);
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* ---------------------------
+   small utility: hide when printing
+   --------------------------- */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ---------------------------
+   Optional: rotate idle for team profile (if used)
+   --------------------------- */
+@keyframes spinTwice {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(360deg); }
+  100% { transform: rotateY(720deg); }
+}
+.idle-rotate {
+  animation: spinTwice 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* ---------------------------
+   Utility: subtle focus outline for accessibility
+   --------------------------- */
+:focus {
+  outline: 2px dashed rgba(16,185,129,0.28);
+  outline-offset: 4px;
+}
+
+/* ---------------------------
+   Small responsive tweak: larger hero font on wide screens
+   --------------------------- */
+@media (min-width: 1150px) {
+  .hero-giant { font-size: 4.2rem; line-height: 1; }
+}
+
+/* ---------------------------
+   Ensure images are crisp & performant layout
+   --------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -webkit-user-drag: none;
+}
+
+/* ---------------------------
+   Accessibility: reduced motion preference
+   --------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .blob1, .blob2, .fade-up, .idle-rotate, .card-glow, .kpi-base {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+@keyframes dna-spin {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.animate-dna-spin {
+  animation: dna-spin 10s linear infinite;
+}
+
+
