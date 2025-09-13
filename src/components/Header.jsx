@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/abl_logo.png"; // make sure file exists (case-sensitive)
+import logo from "../assets/ABL_logo.png"; // make sure file exists (case-sensitive)
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -98,3 +98,4 @@ export default function Header() {
     </>
   );
 }
+
