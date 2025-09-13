@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import useInView from "../hooks/useInView";
-import videoSrc from "../assets/hero_bg_Loop.mp4"; // keep your video in src/assets
+import videoSrc from "../assets/hero_bg_loop.mp4"; // keep your video in src/assets
 
 export default function HeroSection() {
   // ref for the whole hero (video play/pause)
@@ -212,3 +212,4 @@ function TiltKPI({ target = 0, suffix = "", label = "", gradient = "from-green-4
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
 }
+
